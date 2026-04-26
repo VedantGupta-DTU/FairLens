@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Home, AlertTriangle, BarChart3, MapPin, Cpu, Sparkles,
@@ -21,26 +22,36 @@ const sections = [
 export default function SidebarNav() {
   const [activeSection, setActiveSection] = useState('hero')
   const [hoveredId, setHoveredId] = useState<string | null>(null)
+  const { pathname } = useLocation()
 
   useEffect(() => {
+    if (pathname !== '/') return
+
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
+        // Find the entry that is most visible
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id)
           }
-        }
+        })
       },
-      { threshold: 0.3, rootMargin: '-10% 0px -40% 0px' }
+      { threshold: 0.2, rootMargin: '-10% 0px -40% 0px' }
     )
 
-    sections.forEach(({ id }) => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
+    // Wait for the Outlet to fully render the Landing page components
+    const timer = setTimeout(() => {
+      sections.forEach(({ id }) => {
+        const el = document.getElementById(id)
+        if (el) observer.observe(el)
+      })
+    }, 200)
 
-    return () => observer.disconnect()
-  }, [])
+    return () => {
+      clearTimeout(timer)
+      observer.disconnect()
+    }
+  }, [pathname])
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id)
