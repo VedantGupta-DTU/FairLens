@@ -1,18 +1,25 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export default function CustomCursor() {
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
-  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 }
-  const glowX = useSpring(cursorX, springConfig)
-  const glowY = useSpring(cursorY, springConfig)
+  
+  // Staggered springs for comet tail effect
+  const spring1X = useSpring(cursorX, { damping: 25, stiffness: 400, mass: 0.2 })
+  const spring1Y = useSpring(cursorY, { damping: 25, stiffness: 400, mass: 0.2 })
+  
+  const spring2X = useSpring(cursorX, { damping: 25, stiffness: 200, mass: 0.5 })
+  const spring2Y = useSpring(cursorY, { damping: 25, stiffness: 200, mass: 0.5 })
+  
+  const spring3X = useSpring(cursorX, { damping: 30, stiffness: 120, mass: 0.8 })
+  const spring3Y = useSpring(cursorY, { damping: 30, stiffness: 120, mass: 0.8 })
+
   const [isHovering, setIsHovering] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
   const [isTouchDevice, setIsTouchDevice] = useState(false)
 
   useEffect(() => {
-    // Detect touch devices
     const checkTouch = () => {
       setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
     }
@@ -56,68 +63,64 @@ export default function CustomCursor() {
   if (isTouchDevice) return null
 
   return (
-    <>
-      {/* Main dot cursor */}
+    <div className="pointer-events-none" style={{ opacity: isHidden ? 0 : 1, transition: 'opacity 0.3s' }}>
+      {/* 3rd Trail (Slowest, largest, faintest) */}
       <motion.div
-        className="custom-cursor-dot"
         style={{
-          position: 'fixed',
-          left: cursorX,
-          top: cursorY,
-          x: '-50%',
-          y: '-50%',
-          width: isHovering ? 12 : 6,
-          height: isHovering ? 12 : 6,
+          position: 'fixed', left: spring3X, top: spring3Y, x: '-50%', y: '-50%',
+          width: isHovering ? 80 : 32,
+          height: isHovering ? 80 : 32,
           borderRadius: '50%',
-          background: '#E07A5F',
-          pointerEvents: 'none',
-          zIndex: 99999,
-          mixBlendMode: 'normal',
+          border: isHovering ? '1px dashed rgba(224,122,95,0.2)' : 'none',
+          background: 'radial-gradient(circle, rgba(224,122,95,0.08) 0%, transparent 70%)',
+          zIndex: 99996,
+          transition: 'width 0.4s, height 0.4s',
+        }}
+        animate={{ rotate: isHovering ? 180 : 0 }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+      />
+
+      {/* 2nd Trail (Medium) */}
+      <motion.div
+        style={{
+          position: 'fixed', left: spring2X, top: spring2Y, x: '-50%', y: '-50%',
+          width: isHovering ? 50 : 16,
+          height: isHovering ? 50 : 16,
+          borderRadius: '50%',
+          border: isHovering ? '1px solid rgba(224,122,95,0.5)' : 'none',
+          background: isHovering ? 'rgba(224,122,95,0.05)' : 'rgba(224,122,95,0.2)',
+          zIndex: 99997,
+          transition: 'width 0.3s, height 0.3s',
+        }}
+      />
+
+      {/* 1st Trail (Fastest, follows closely) */}
+      <motion.div
+        style={{
+          position: 'fixed', left: spring1X, top: spring1Y, x: '-50%', y: '-50%',
+          width: isHovering ? 24 : 10,
+          height: isHovering ? 24 : 10,
+          borderRadius: '50%',
+          background: isHovering ? 'transparent' : 'rgba(224,122,95,0.5)',
+          border: isHovering ? '2px solid #E07A5F' : 'none',
+          zIndex: 99998,
           transition: 'width 0.2s, height 0.2s',
         }}
       />
 
-      {/* Outer glow ring */}
-      <motion.div
-        className="custom-cursor-glow"
-        style={{
-          position: 'fixed',
-          left: glowX,
-          top: glowY,
-          x: '-50%',
-          y: '-50%',
-          width: isHovering ? 60 : 40,
-          height: isHovering ? 60 : 40,
-          borderRadius: '50%',
-          border: `1.5px solid ${isHovering ? 'rgba(224,122,95,0.6)' : 'rgba(224,122,95,0.25)'}`,
-          background: isHovering
-            ? 'radial-gradient(circle, rgba(224,122,95,0.12) 0%, transparent 70%)'
-            : 'radial-gradient(circle, rgba(224,122,95,0.06) 0%, transparent 70%)',
-          pointerEvents: 'none',
-          zIndex: 99998,
-          opacity: isHidden ? 0 : 1,
-          transition: 'width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s',
-        }}
-      />
-
-      {/* Large ambient glow blob (very subtle) */}
+      {/* Core Dot (Immediate follow) */}
       <motion.div
         style={{
-          position: 'fixed',
-          left: glowX,
-          top: glowY,
-          x: '-50%',
-          y: '-50%',
-          width: 200,
-          height: 200,
+          position: 'fixed', left: cursorX, top: cursorY, x: '-50%', y: '-50%',
+          width: isHovering ? 6 : 4,
+          height: isHovering ? 6 : 4,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(224,122,95,0.04) 0%, transparent 70%)',
-          pointerEvents: 'none',
-          zIndex: 99997,
-          opacity: isHidden ? 0 : 1,
-          filter: 'blur(30px)',
+          background: '#FFF',
+          boxShadow: '0 0 10px #E07A5F, 0 0 20px #E07A5F',
+          zIndex: 99999,
+          transition: 'width 0.1s, height 0.1s',
         }}
       />
-    </>
+    </div>
   )
 }
