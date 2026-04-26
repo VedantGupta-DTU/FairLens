@@ -1,0 +1,51 @@
+applicant_id,name,age,gender,caste_category,religion,district,area_type,income_annual,education,loan_amount,credit_score,employment_type,dependents,has_collateral,loan_status
+1001,Rajesh Kumar,34,Male,General,Hindu,Lucknow,Urban,720000,Graduate,500000,740,Salaried,2,Yes,Approved
+1002,Priya Sharma,28,Female,General,Hindu,Noida,Urban,580000,Post-Graduate,400000,710,Salaried,1,Yes,Approved
+1003,Ramesh Paswan,42,Male,SC,Hindu,Varanasi,Rural,180000,High School,150000,580,Self-Employed,4,No,Rejected
+1004,Sunita Devi,35,Female,SC,Hindu,Gorakhpur,Rural,120000,Below 10th,100000,520,Daily Wage,5,No,Rejected
+1005,Amit Verma,30,Male,OBC,Hindu,Lucknow,Urban,450000,Graduate,350000,680,Salaried,2,Yes,Approved
+1006,Fatima Khatoon,29,Female,General,Muslim,Meerut,Urban,320000,Graduate,250000,650,Salaried,1,No,Rejected
+1007,Suresh Chauhan,45,Male,OBC,Hindu,Agra,Semi-Urban,380000,Diploma,300000,660,Self-Employed,3,Yes,Approved
+1008,Geeta Kumari,31,Female,SC,Hindu,Bareilly,Rural,95000,Below 10th,80000,490,Daily Wage,4,No,Rejected
+1009,Vikram Singh,38,Male,General,Hindu,Ghaziabad,Urban,890000,Post-Graduate,700000,780,Salaried,2,Yes,Approved
+1010,Aisha Begum,26,Female,OBC,Muslim,Aligarh,Semi-Urban,210000,High School,150000,590,Self-Employed,3,No,Rejected
+1011,Ravi Shankar,50,Male,General,Hindu,Lucknow,Urban,1200000,Post-Graduate,900000,800,Salaried,1,Yes,Approved
+1012,Meena Rawat,33,Female,ST,Hindu,Sonbhadra,Rural,85000,Below 10th,70000,470,Daily Wage,6,No,Rejected
+1013,Mohd Irfan,36,Male,General,Muslim,Moradabad,Urban,520000,Graduate,400000,700,Salaried,2,Yes,Approved
+1014,Kavita Mishra,40,Female,General,Hindu,Prayagraj,Urban,680000,Post-Graduate,550000,730,Salaried,1,Yes,Approved
+1015,Dinesh Kori,28,Male,SC,Hindu,Jhansi,Rural,145000,High School,120000,550,Self-Employed,3,No,Rejected
+1016,Anita Chamar,24,Female,SC,Hindu,Banda,Rural,78000,Below 10th,60000,440,Daily Wage,4,No,Rejected
+1017,Sandeep Yadav,32,Male,OBC,Hindu,Kanpur,Urban,410000,Graduate,300000,670,Salaried,2,No,Approved
+1018,Nazia Parveen,27,Female,General,Muslim,Lucknow,Urban,350000,Graduate,250000,640,Salaried,1,No,Rejected
+1019,Manoj Tripathi,55,Male,General,Hindu,Varanasi,Urban,950000,Post-Graduate,800000,790,Salaried,1,Yes,Approved
+1020,Lakshmi Gautam,38,Female,SC,Hindu,Mirzapur,Rural,110000,High School,90000,510,Self-Employed,5,No,Rejected
+1021,Ajay Tiwari,41,Male,General,Hindu,Agra,Urban,780000,Graduate,600000,750,Salaried,2,Yes,Approved
+1022,Shabnam Jahan,30,Female,OBC,Muslim,Bareilly,Semi-Urban,190000,High School,140000,570,Self-Employed,3,No,Rejected
+1023,Bhola Nath,48,Male,OBC,Hindu,Gorakhpur,Semi-Urban,340000,Diploma,250000,640,Self-Employed,4,Yes,Approved
+1024,Draupadi Devi,22,Female,ST,Hindu,Chitrakoot,Rural,65000,Below 10th,50000,420,Daily Wage,3,No,Rejected
+1025,Rohit Agarwal,29,Male,General,Hindu,Noida,Urban,920000,Post-Graduate,750000,770,Salaried,0,Yes,Approved
+1026,Pooja Patel,34,Female,OBC,Hindu,Kanpur,Urban,480000,Graduate,350000,690,Salaried,2,Yes,Approved
+1027,Raju Musahar,40,Male,SC,Hindu,Azamgarh,Rural,130000,Below 10th,100000,500,Daily Wage,6,No,Rejected
+1028,Sana Sheikh,25,Female,General,Muslim,Ghaziabad,Urban,290000,Graduate,200000,620,Salaried,0,No,Rejected
+1029,Prem Narayan,52,Male,OBC,Hindu,Sultanpur,Rural,260000,High School,200000,610,Self-Employed,3,No,Rejected
+1030,Champa Devi,36,Female,SC,Hindu,Pratapgarh,Rural,88000,Below 10th,70000,460,Daily Wage,5,No,Rejected
+1031,Vivek Saxena,33,Male,General,Hindu,Lucknow,Urban,850000,Post-Graduate,650000,760,Salaried,1,Yes,Approved
+1032,Rani Kushwaha,29,Female,OBC,Hindu,Jaunpur,Semi-Urban,175000,High School,130000,560,Self-Employed,2,No,Rejected
+1033,Deepak Chauhan,37,Male,OBC,Hindu,Meerut,Urban,430000,Graduate,320000,680,Salaried,2,Yes,Approved
+1034,Rekha Singh,44,Female,General,Hindu,Lucknow,Urban,720000,Post-Graduate,550000,740,Salaried,1,Yes,Approved
+1035,Kallu Ram,46,Male,SC,Hindu,Basti,Rural,155000,High School,120000,540,Self-Employed,4,No,Rejected
+1036,Nasreen Bano,32,Female,OBC,Muslim,Rampur,Semi-Urban,200000,Diploma,150000,580,Self-Employed,2,No,Rejected
+1037,Arvind Kumar,35,Male,General,Hindu,Prayagraj,Urban,650000,Graduate,500000,720,Salaried,2,Yes,Approved
+1038,Savitri Devi,41,Female,SC,Hindu,Ballia,Rural,98000,Below 10th,75000,480,Daily Wage,5,No,Rejected
+1039,Kamal Hasan,30,Male,General,Muslim,Lucknow,Urban,540000,Graduate,400000,700,Salaried,1,Yes,Approved
+1040,Lata Maurya,27,Female,OBC,Hindu,Kanpur,Urban,310000,Diploma,220000,630,Salaried,1,No,Approved
+1041,Shyam Lal,53,Male,SC,Hindu,Faizabad,Rural,170000,High School,130000,560,Self-Employed,3,No,Rejected
+1042,Guddi Devi,23,Female,ST,Hindu,Mirzapur,Rural,72000,Below 10th,55000,430,Daily Wage,4,No,Rejected
+1043,Rahul Gupta,31,Male,General,Hindu,Noida,Urban,780000,Post-Graduate,600000,750,Salaried,0,Yes,Approved
+1044,Anjali Verma,36,Female,OBC,Hindu,Varanasi,Urban,420000,Graduate,300000,670,Salaried,2,Yes,Approved
+1045,Balram Das,44,Male,SC,Hindu,Gonda,Rural,140000,High School,110000,530,Self-Employed,5,No,Rejected
+1046,Zainab Fatima,28,Female,General,Muslim,Aligarh,Semi-Urban,270000,Graduate,200000,610,Salaried,1,No,Rejected
+1047,Om Prakash,39,Male,OBC,Hindu,Agra,Semi-Urban,360000,Diploma,280000,650,Self-Employed,3,Yes,Approved
+1048,Parvati Devi,45,Female,SC,Hindu,Deoria,Rural,82000,Below 10th,65000,450,Daily Wage,6,No,Rejected
+1049,Sanjay Jain,34,Male,General,Hindu,Lucknow,Urban,1100000,Post-Graduate,850000,810,Salaried,1,Yes,Approved
+1050,Rukhsar Begum,33,Female,OBC,Muslim,Moradabad,Semi-Urban,230000,High School,170000,590,Self-Employed,2,No,Rejected
